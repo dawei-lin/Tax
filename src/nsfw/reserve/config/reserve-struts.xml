@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="reserve" extends="struts-default" namespace="/nsfw">
+	<action name="reserve_*" class="nsfw.reserve.action.ReserveAction" method="{1}">
+	<result name="{1}">/WEB-INF/jsp/nsfw/reserve/{1}.jsp</result>
+	<result name="list" type="redirectAction">
+	<param name="actionName">reserve_listUI</param>
+	<param name="encode">true</param>
+	<param name="reserve.reserveState">${strReserveState}</param>
+	<param name="reserve.reserveNumber">${strReserveNumber}</param>
+	<param name="startTime">${strStartTime}</param>
+	<param name="endTime">${strEndTime}</param>
+	</result>
+	</action>
+	</package>
+</struts>
